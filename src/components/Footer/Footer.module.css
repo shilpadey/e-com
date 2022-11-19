@@ -1,0 +1,40 @@
+.footer {
+   display: flex;
+   margin-top: 40px;
+   padding: 20px;
+   background: rgb(47, 205, 241); 
+}
+
+.footer h3{
+    text-align: center;
+    color: white;
+    width: 50%;
+    font-size: 50px;
+    font-weight: bold;
+    margin: 0 auto;
+}
+
+.footer .icons{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.icons ul{
+    list-style-type: none;
+    display: flex;
+}
+
+.icons li{
+    padding: 10px;
+    margin: 0px 20px;
+}
+
+.icons li:hover{
+    background-color: rgb(88, 248, 195);
+}
+
+.icons img{
+    width: 30px;
+}

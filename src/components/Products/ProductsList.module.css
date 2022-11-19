@@ -1,0 +1,28 @@
+.container {
+    display: grid;
+    list-style: none;
+    grid-template-columns: auto auto;
+    padding: 10px;
+    text-align: center;
+}
+
+.container-items {
+    display: block;
+    align-items: center;
+}
+
+.cartbtn{
+height: 40px;
+width: 150px;
+margin-bottom:20px;
+background-color: darkslategrey;
+color: aqua;
+border: none;
+border-radius: 3px;
+margin-left: 45% ;
+font-size: 20px;
+}
+
+.cartbtn button{
+padding-left: 50%;
+}

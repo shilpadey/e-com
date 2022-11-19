@@ -1,0 +1,45 @@
+.item{
+    margin:10%;
+    margin-bottom: 150px;
+}
+
+ .title h3{
+    font-family: 'Times New Roman';
+    font-weight: bold;
+    font-size: 30px;
+    color: darkslategray;
+    margin-bottom: 15px;
+}
+
+.picture img{
+    height:250px ;
+    width: 250px;
+    transition: transform .5s;
+    justify-content: space-between;
+}
+
+.picture:hover img{
+   transform: scale(1.5);
+   height: 200px;
+   width:200px;
+}
+
+.foot{
+    padding-top: 20px;
+}
+
+.foot button{
+   margin-left: 140px;
+   width: 150px;
+   height: 40px;
+   font-size: 15px;
+   background-color: lightseagreen;
+   border: none;
+   color: white;
+   font-weight: bold;
+   border-radius: 3px;
+   opacity: 0.8;
+   transition: 0.3s;
+}
+
+.foot button:hover {opacity:1}
