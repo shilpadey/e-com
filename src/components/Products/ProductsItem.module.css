@@ -16,6 +16,7 @@
     width: 250px;
     transition: transform .5s;
     justify-content: space-between;
+    overflow: hidden;
 }
 
 .picture:hover img{

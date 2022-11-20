@@ -10,9 +10,21 @@ const Footer = () => {
                 <h3>The Generics</h3>
                 <div className={classes.icons}>
                     <ul>
-                        <a href="www.youtube.come">
-                            <img src={youtube} alt=""></img>
-                        </a>
+                        <li>
+                            <a href="www.youtube.com">
+                                <img src={youtube} alt=""></img>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="www.spotify.com">
+                                <img src=" https://prasadyash2411.github.io/ecom-website/img/Spotify Logo.png" alt="" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="www.facebook.com">
+                                <img src="https://prasadyash2411.github.io/ecom-website/img/Facebook Logo.png" alt="" />
+                            </a>
+                        </li>
                     </ul>
                 </div>
            </div>
