@@ -1,36 +1,39 @@
 
-  .c-row{
+.cart-items{
     font-size: 18px;
     display: flex;
     justify-content: space-between;
 }
 
 .c-column{
-    display: block;
+    display: flex;
     align-items: center;
     border-bottom: 1px solid black;
-    margin-right: 1.5rem;
+    margin-right: 1.5em;
     margin-top: 10px;
     padding-bottom: 10px;
-    justify-content: space-between;
 }
 
-.c-item{
-    flex: 50%;
-    padding-left: 20px;
-}
 
-.img{
+.cart-img{
     width: 80px;
     border-radius: 8%;
     margin-right: 20px;
 }
 
 .price{
-    flex: 30%;
+    padding:0 20px;
+    display: flex;
+    align-items: center;
 }
 
 .quantity {
+    display: flex;
+    align-items: center;
+}
+
+.quantity span {
+    display: flex;
     width: 40px;
     height: 30px;
     border: 1px solid rgb(2, 194, 237);
@@ -52,7 +55,7 @@
     padding: 0px 7px;
     font-weight: bold;
     border: none;
-    margin-left: 10px;
+    margin-left: 30px;
 }
 
 .quantity button:hover{

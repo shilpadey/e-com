@@ -5,6 +5,7 @@ import Footer from './components/Footer/Footer';
 import Header from './components/Layout/Header';
 import ProductsList from './components/Products/ProductsList';
 import Cart from './components/Cart/Cart';
+import CartProvider from './store/CartProvider';
 
 function App() {
   const [cartShow, setCartShow] = useState(false);
@@ -18,14 +19,14 @@ function App() {
   };
 
   return (
-    <React.Fragment>
+    <CartProvider>
       <Header onShow={showCartHandler}/>
       {cartShow && <Cart onHideCart={hideCartHandler}/>}
       <main>
         <ProductsList />
       </main>
       <Footer />
-    </React.Fragment>
+    </CartProvider>
   );
 }
 
