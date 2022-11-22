@@ -8,6 +8,7 @@ import Cart from './components/Cart/Cart';
 import CartProvider from './store/CartProvider';
 import About from './components/pages/About';
 import Store from './components/pages/Store';
+import Home from './components/pages/Home';
 
 function App() {
   const [cartShow, setCartShow] = useState(false);
@@ -25,7 +26,9 @@ function App() {
       <Header onShow={showCartHandler}/>
       {cartShow && <Cart onHideCart={hideCartHandler}/>}
       <main>
-        
+        <Route path="/home">
+          <Home />
+        </Route>
         <Route path="/store">
           <Store />
         </Route>
