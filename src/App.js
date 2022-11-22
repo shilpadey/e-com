@@ -1,11 +1,13 @@
 
 import React, { useState } from 'react';
+import {Route} from 'react-router-dom';
 import './App.css';
 import Footer from './components/Footer/Footer';
 import Header from './components/Layout/Header';
-import ProductsList from './components/Products/ProductsList';
 import Cart from './components/Cart/Cart';
 import CartProvider from './store/CartProvider';
+import About from './components/pages/About';
+import Store from './components/pages/Store';
 
 function App() {
   const [cartShow, setCartShow] = useState(false);
@@ -23,7 +25,13 @@ function App() {
       <Header onShow={showCartHandler}/>
       {cartShow && <Cart onHideCart={hideCartHandler}/>}
       <main>
-        <ProductsList />
+        
+        <Route path="/store">
+          <Store />
+        </Route>
+        <Route path="/about">
+          <About />
+        </Route>
       </main>
       <Footer />
     </CartProvider>

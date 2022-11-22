@@ -41,4 +41,13 @@
     font-size: 100px;
 }
 
+.header a:hover,
+.header a:active,
+.header a.active {
+  color: white;
+  padding-bottom: 0.25rem;
+  border-bottom: 4px solid white;
+}
+
+
 

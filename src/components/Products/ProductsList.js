@@ -41,7 +41,8 @@ const ProductsList = () => {
           id={item.id}
           title={item.title}
           price={item.price}
-          imageUrl={item.imageUrl} 
+          imageUrl={item.imageUrl}
+          quantity = {item.quantity} 
         />
     ));
 

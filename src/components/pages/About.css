@@ -1,0 +1,26 @@
+.about{
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 22px;
+}
+
+.about h2{
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    padding: 20px;
+    font-size: 30px;
+}
+
+.img{
+    float: left;
+    margin: 20px 50px;
+    border-radius: 50px;
+    width: 200px;
+    height: 200px;
+}
+
+.para{
+    font-size: 17px;
+    margin: 20px;
+    color: #777;
+}
