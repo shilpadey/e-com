@@ -18,6 +18,9 @@ const Header = (props) => {
                     <li>
                         <NavLink activeClassName={classes.active} to="/about">About</NavLink>
                     </li>
+                    <li>
+                        <NavLink activeClassName={classes.active} to="/contact">Contact US</NavLink>
+                    </li>
                     <HeaderCartButton onClick={props.onShow}/>
                 </ul>
                 <h1>The Generics</h1>

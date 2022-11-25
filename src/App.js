@@ -9,6 +9,7 @@ import CartProvider from './store/CartProvider';
 import About from './components/pages/About';
 import Store from './components/pages/Store';
 import Home from './components/pages/Home';
+import Contact from './components/pages/Contact';
 
 function App() {
   const [cartShow, setCartShow] = useState(false);
@@ -34,6 +35,9 @@ function App() {
         </Route>
         <Route path="/about">
           <About />
+        </Route>
+        <Route path="/contact">
+          <Contact />
         </Route>
       </main>
       <Footer />
