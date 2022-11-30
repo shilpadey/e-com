@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import CartContext from "../../store/cart-context";
 
 import classes from './ProductsItem.module.css';
@@ -23,17 +24,19 @@ const ProductsItem = (props) => {
 
     return (
         <React.Fragment>
-            <div className={classes.item}>
+            <div className={classes.item}>     
                 <header className={classes.title}>
                     <h3>{props.title}</h3>
                 </header>
-                <div className={classes.picture}>
-                    <img src={props.imageUrl} alt=""/>
-                </div>
+                <Link to={`/store/${props.id}`}>    
+                    <div className={classes.picture}>
+                        <img src={props.imageUrl} alt=""/>
+                    </div>
+                </Link>
                 <div className={classes.foot}>
                     <span>{price}</span>
                     <button onClick={addToCart}>ADD TO CART</button>
-                </div>
+                </div>   
             </div>
         </React.Fragment>
     );

@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import {Route} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import './App.css';
 import Footer from './components/Footer/Footer';
 import Header from './components/Layout/Header';
@@ -10,6 +10,7 @@ import About from './components/pages/About';
 import Store from './components/pages/Store';
 import Home from './components/pages/Home';
 import Contact from './components/pages/Contact';
+import ProductDetail from './components/pages/ProductDetail';
 
 function App() {
   const [cartShow, setCartShow] = useState(false);
@@ -27,18 +28,23 @@ function App() {
       <Header onShow={showCartHandler}/>
       {cartShow && <Cart onHideCart={hideCartHandler}/>}
       <main>
-        <Route path="/home">
-          <Home />
-        </Route>
-        <Route path="/store">
-          <Store />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/contact">
-          <Contact />
-        </Route>
+       <Switch>
+          <Route path="/home">
+            <Home />
+          </Route>
+          <Route path="/store" exact>
+            <Store />
+          </Route>
+          <Route path="/store/:productId">
+            <ProductDetail />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+       </Switch>
       </main>
       <Footer />
     </CartProvider>

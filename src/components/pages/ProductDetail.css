@@ -1,0 +1,42 @@
+.main{
+    padding: 30px;
+}
+
+.title{
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 50px;
+}
+
+
+.product_details {
+    left: 220%;
+    bottom: 50%;
+    padding-top: 40px;
+}
+
+.product_details h2{
+    font-size: 30px;
+    color: darkslategrey;
+    padding-bottom: 50px;
+}
+
+
+.product_details h3{
+    font-size: 30px;
+    padding-bottom: 50px;
+    -moz-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.rate{
+    font-size: 20px;
+    background-color: green;
+    color: white;
+    height: 30px;
+    text-align: center;
+    border-radius: 10px;
+}
+
