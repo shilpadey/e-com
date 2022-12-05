@@ -24,11 +24,11 @@ function App() {
   };
 
   return (
-    <CartProvider>
-      <Header onShow={showCartHandler}/>
-      {cartShow && <Cart onHideCart={hideCartHandler}/>}
-      <main>
-       <Switch>
+    <Switch>
+      <CartProvider>
+        <Header onShow={showCartHandler}/>
+        {cartShow && <Cart onHideCart={hideCartHandler}/>}
+        <main>
           <Route path="/home">
             <Home />
           </Route>
@@ -44,10 +44,10 @@ function App() {
           <Route path="/contact">
             <Contact />
           </Route>
-       </Switch>
-      </main>
-      <Footer />
-    </CartProvider>
+        </main>
+        <Footer />
+      </CartProvider>
+    </Switch>
   );
 }
 

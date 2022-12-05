@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import CartContext from "../../store/cart-context";
 import Modal from "../UI/Modal";
 
-import classes from './Cart.module.css';
+import  './Cart.css';
 import CartItem from "./CartItem";
 
       
@@ -36,19 +36,19 @@ const Cart = (props) => {
     return (
         <Modal onHideCart={props.onHideCart}>
             <div>
-                <h2 className={classes['cart-h2']}>CART</h2>
-                <button className={classes['x-btn']} onClick={props.onHideCart}>X</button>
-                <div className={classes['cart-row']}>
-                    <span className={classes['cart-item']}>Item</span>
-                    <span className={classes['cart-price']}>Price</span>
-                    <span className={classes['cart-quantity']}>Quantity</span>
+                <h2 className='cart-h2'>CART</h2>
+                <button className='x-btn' onClick={props.onHideCart}>X</button>
+                <div className="cart-row cart-header">
+                    <span className='cart-item cart-column'>Item</span>
+                    <span className='cart-price cart-column'>Price</span>
+                    <span className='cart-quantity cart-column'>Quantity</span>
                 </div>
                 <div>{cartItem}</div>
-                <div className={classes.total}>
-                    <span>Total</span>
+                <div className='cart-total'>
+                    <span className="total-title">Total</span>
                     <span>$<span id="total-value">{totalAmount}</span></span>
                 </div>
-                <button className={classes['purchase-btn']}>PURCHASE</button>
+                <button className='purchase-btn'>PURCHASE</button>
             </div>
         </Modal>
     );

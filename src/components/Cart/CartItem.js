@@ -1,22 +1,20 @@
 import React from "react";
-import classes from './CartItem.module.css';
+import  './CartItem.css';
 
 const CartItem = (props) => {
     const price = `$${props.price.toFixed(2)}`;
     return (
-        <div className={classes['cart-item']}>
-            <div className={classes['c-column']}>
-                <span>  
-                    <img src={props.imageUrl} alt="" className={classes['cart-img']}/>
-                    {props.title}
+        <div className="cart-row">
+            <span className="cart-item cart-column">  
+                <img src={props.imageUrl} alt="" className='cart-img'/>
+                {props.title}
+            </span>
+            <span className='cart-price cart-column'>{price}</span>
+            <div className='cart-quantity cart-column'>
+                <span className='quantity'>{props.quantity}</span>
+                <span>
+                    <button onClick={props.onRemove}>REMOVE</button>
                 </span>
-                <span className={classes.price}>{price}</span>
-                <div className={classes.quantity}>
-                    <span>
-                        {props.quantity}
-                        <button onClick={props.onRemove}>REMOVE</button>
-                    </span>
-                </div>
             </div>
         </div>
     );
