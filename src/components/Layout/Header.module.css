@@ -10,7 +10,7 @@
     background: #777;
     color: white;
     display: block;
-    padding-bottom: 20pxs;
+    padding-bottom: 20px;
 }
 
 .header ul{
@@ -47,6 +47,11 @@
   color: white;
   padding-bottom: 0.25rem;
   border-bottom: 4px solid white;
+}
+
+.header li button{
+    position: absolute;
+    margin-left: 5rem;
 }
 
 

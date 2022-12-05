@@ -12,6 +12,11 @@ const AuthForm = () => {
     const emailInputRef = useRef();
     const passwordInputRef = useRef();
     const authCtx = useContext(AuthContext);
+    const [isLogin, setIsLogin] = useState(true);
+
+    const switchAuthModeHandler = () => {
+      setIsLogin((prevState) => !prevState);
+    };
 
     const submitHandler = (event) => {
         event.preventDefault();
@@ -20,8 +25,14 @@ const AuthForm = () => {
         const enteredPassword = passwordInputRef.current.value;
 
         setIsLoading(true);
+        let url;
+        if(isLogin){
+          url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCVvVgCHqSLaKTiHjlO8Z-DehF45NMt6zw'
+        }else{
+          url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCVvVgCHqSLaKTiHjlO8Z-DehF45NMt6zw'
+        }
         fetch(
-            'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCVvVgCHqSLaKTiHjlO8Z-DehF45NMt6zw',
+            url,
            {
              method: 'POST',
              body: JSON.stringify({
@@ -66,8 +77,16 @@ const AuthForm = () => {
                     <input type='password' id='password' required ref={passwordInputRef}/>
                 </div>
                 <div className={classes.actions}>
-                    {!isLoading && <button>Login</button>}
+                    {!isLoading && <button>{isLogin ? 'Login' : 'Create Account'}</button>}
                     {isLoading && <p>Sending Request...</p>}
+                    <button
+                     type='button'
+                     className={classes.toggle}
+                     onClick={switchAuthModeHandler}
+                    >
+                      {isLogin ? 'Create new account' : 'Login with existing account'}
+             
+                    </button>
                 </div>
             </form>
         </section>
