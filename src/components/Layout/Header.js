@@ -1,4 +1,4 @@
-import React from "react";
+import React  from "react";
 import { NavLink } from "react-router-dom";
 
 import classes from './Header.module.css';
@@ -17,6 +17,9 @@ const Header = (props) => {
                     </li>
                     <li>
                         <NavLink activeClassName={classes.active} to="/about">About</NavLink>
+                    </li>
+                    <li>
+                        <NavLink activeClassName={classes.active} to="/login">Login</NavLink>
                     </li>
                     <li>
                         <NavLink activeClassName={classes.active} to="/contact">Contact US</NavLink>

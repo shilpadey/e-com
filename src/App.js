@@ -1,6 +1,6 @@
 
-import React, { useState } from 'react';
-import {Route, Switch} from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import {Redirect, Route, Switch} from 'react-router-dom';
 import './App.css';
 import Footer from './components/Footer/Footer';
 import Header from './components/Layout/Header';
@@ -11,9 +11,13 @@ import Store from './components/pages/Store';
 import Home from './components/pages/Home';
 import Contact from './components/pages/Contact';
 import ProductDetail from './components/pages/ProductDetail';
+import AuthContext from './store/auth-context';
+import Auth from './components/pages/Auth';
 
 function App() {
   const [cartShow, setCartShow] = useState(false);
+
+  const authCntx = useContext(AuthContext);
 
   const showCartHandler = () => {
     setCartShow(true);
@@ -24,30 +28,39 @@ function App() {
   };
 
   return (
-    <Switch>
-      <CartProvider>
-        <Header onShow={showCartHandler}/>
-        {cartShow && <Cart onHideCart={hideCartHandler}/>}
-        <main>
-          <Route path="/home">
+    <CartProvider>
+      <Header onShow={showCartHandler}/>
+      {cartShow && <Cart onHideCart={hideCartHandler}/>}
+      <main>
+        <Switch>
+          <Route path="/home" exact>
             <Home />
           </Route>
           <Route path="/store" exact>
-            <Store />
+            {authCntx.isLoggedIn && <Store />}
+            {!authCntx.isLoggedIn && <Redirect to='/login'/>}
           </Route>
           <Route path="/store/:productId">
             <ProductDetail />
           </Route>
           <Route path="/about">
-            <About />
+            {authCntx.isLoggedIn && <About />}
+            {!authCntx.isLoggedIn && <Redirect to='/login'/>}
+          </Route>
+          <Route path="/login">
+            <Auth /> 
           </Route>
           <Route path="/contact">
-            <Contact />
+            {authCntx.isLoggedIn && <Contact />}
+            {!authCntx.isLoggedIn && <Redirect to='/login'/>}
           </Route>
-        </main>
-        <Footer />
-      </CartProvider>
-    </Switch>
+          <Route path='*'>
+            <Redirect to="/login" />
+          </Route>
+        </Switch>
+      </main>
+      <Footer />
+    </CartProvider>
   );
 }
 
