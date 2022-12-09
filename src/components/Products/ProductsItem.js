@@ -16,7 +16,7 @@ const ProductsItem = (props) => {
             title: props.title,
             imageUrl: props.imageUrl,
             price: props.price,
-            quantity: 1,
+            quantity: props.quantity,
         };
         itemCtx.addItem(arr);
     };

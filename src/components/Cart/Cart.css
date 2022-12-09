@@ -1,3 +1,7 @@
+.cart{
+  max-height: 20rem;
+  overflow: scroll;
+}
 .cart-h2{
   margin:20px 0px;
   padding:0;

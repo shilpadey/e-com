@@ -10,6 +10,7 @@ const PRODUCTS_ARR = [
         title: 'Colors',
         price: 100,
         imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
+        quantity: 1,
     },
     
     {
@@ -17,6 +18,7 @@ const PRODUCTS_ARR = [
         title: 'Black and white Colors',
         price: 50,
         imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
+        quantity: 1,
     },
     
     {
@@ -24,6 +26,7 @@ const PRODUCTS_ARR = [
         title: 'Yellow and Black Colors',
         price: 70,
         imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
+        quantity: 1,
     },
     
     {
@@ -31,10 +34,13 @@ const PRODUCTS_ARR = [
         title: 'Blue Color',
         price: 100,
         imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png',
+        quantity: 1,
     }  
 ];  
 
+
 const ProductsList = () => {
+
     const productsList = PRODUCTS_ARR.map(item =>(
         <ProductsItem
           key={item.id}
