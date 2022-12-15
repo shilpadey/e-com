@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import axios from "axios";
 import CartContext from "./cart-context";
-import { useEffect } from "react";
 //import AuthContext from "./auth-context";
 
 const CartProvider = (props) => {
     const [products, updateProducts] = useState([]);
-    const [quantity, setQuantity] = useState(0);
+    //const [quantity, setQuantity] = useState(0);
     //const authCtx = useContext(AuthContext);
 
     const userEmailId = localStorage.getItem('email');
 
-    useEffect(() => {
+    /*useEffect(() => {
         const productsQuantityHandler = () => {
             const itemsArray = [...products];
             const quantity = itemsArray.reduce((accum, item) => {
@@ -20,54 +19,33 @@ const CartProvider = (props) => {
             setQuantity(quantity);
         };
         productsQuantityHandler();
-    },[products]);
+    },[products]);*/
     
 
     const addItemHandler = async(item) => {
-        let itemsPresent = false;
+       // let itemsPresent = false;
        const newItemArray = [...products];
        console.log(newItemArray);
-       const url = `https://crudcrud.com/api/dbebedf1d8e249979ff00cf9c10bb2de/cart${userEmailId}`
+       const url = `https://crudcrud.com/api/b50b346cd1564eb6a27a6af6f789fda1/cart${userEmailId}`
        /*newItemArray.forEach((element,index) => {
         if(item.id === element.id){
             itemsPresent = true;
             newItemArray[index].quantity = Number(item.quantity) + Number(newItemArray[index].quantity);
         }
-       })*/
+       })
        if(itemsPresent === false){
-        try{
-            const response = await axios.post(url,item)
-            updateProducts([...products, response.data]);
-            console.log(response)
-        }
-        catch (err){
-            console.log(err)
-        }
+        updateProducts([...products,item]);
        }else{
-        try{
-            const updatedItem = newItemArray.forEach((element,index) => {
-                if(item.id === element.id){
-                    itemsPresent = true;
-                    newItemArray[index].quantity = Number(item.quantity) + Number(newItemArray[index].quantity);
-                }
-            })
-            let temp = updatedItem._id
-            console.log(temp)
-            const putResponse = await axios.put(`https://crudcrud.com/api/dbebedf1d8e249979ff00cf9c10bb2de/cart${userEmailId}/${temp}`,updatedItem)
-            updateProducts([putResponse.data]);
-        }
-        catch(err){
-            console.log(err)
-        }
-       }
-       /* const idx = newItemArray.findIndex((itm) => {
+        updateProducts([newItemArray]);
+       }*/
+        function sameIndex (itm) {
             console.log(itm)
             if (itm.id === item.id)
             {
               return itm;
             }
-            return null;
-        })
+        }
+        const idx = newItemArray.findIndex(sameIndex);
         console.log(idx)
         if (idx === -1) {
             try{
@@ -81,27 +59,31 @@ const CartProvider = (props) => {
         }
         else {
             try{
-              const mapProduct = newItemArray.findIndex((itm) => {
-                if(itm.id === item.id)
-                {
-                  return itm;
+                const res = await axios.get(url)
+                const elements = res.data;
+                console.log(elements);
+                function mapProduct(i) {
+                    if(i.title === item.title)
+                    {
+                        return i
+                    }
                 }
-                return null;
-              })
+                const sameItem = newItemArray.findIndex(mapProduct)
               console.log('items')
              console.log(idx)
-             let fetchProduct = newItemArray[mapProduct]
-             let updatedItem = {...fetchProduct, quantity: Number(fetchProduct.quantity + 1) }
-             let temp = updatedItem.id
-             console.log(temp)
-             const res1 = await axios.put(`https://crudcrud.com/api/a1c8ad6506014cef89655eba6e4ea316/cart${userEmailId}/${temp}`, updatedItem)
+             let fetchProduct = newItemArray[sameItem]
+             let updatedItem = {...fetchProduct, quantity: fetchProduct.quantity + 1 }
+             let temp = updatedItem._id
+             console.log(temp);
+             delete updatedItem._id
+             const res1 = await axios.put(`https://crudcrud.com/api/b50b346cd1564eb6a27a6af6f789fda1/cart${userEmailId}/${temp}`, updatedItem)
              updateProducts([res1.data]);
             }
             catch (err)
             {
-              console.log(err)
+              console.log(err);
             }
-        }*/
+        };
     };
 
 
@@ -125,7 +107,7 @@ const CartProvider = (props) => {
         const newItemArray = [...products];
         const deleteIndex = products.findIndex(each => each.id === item.id);
         const temp = deleteIndex._id
-        axios.delete(`https://crudcrud.com/api/db6f856867034225a11ee42e2ab84391/cart${userEmailId}/${temp}`)
+        axios.delete(`https://crudcrud.com/api/b50b346cd1564eb6a27a6af6f789fda1/cart${userEmailId}/${temp}`)
           .then((res) => {
             newItemArray.quantity = newItemArray[temp].quantity - 1;
             updateProducts([newItemArray]);
@@ -139,7 +121,7 @@ const CartProvider = (props) => {
 
     const cartContext = {
         items:products,
-        productsQuantity: quantity, 
+        //productsQuantity: quantity, 
         addItem: addItemHandler,
         removeItem: removeItemHandler,
     }

@@ -20,7 +20,7 @@ const Cart = (props) => {
     const userEmailId = localStorage.getItem('email');
     useEffect(() => {
         const fetchCartItems = async() => {
-           const res = await axios.get(`https://crudcrud.com/api/dbebedf1d8e249979ff00cf9c10bb2de/cart${userEmailId}`)
+           const res = await axios.get(`https://crudcrud.com/api/b50b346cd1564eb6a27a6af6f789fda1/cart${userEmailId}`)
                 crtCtx.items = res.data;
                 setList(res.data);
         };
