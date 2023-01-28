@@ -1,6 +1,5 @@
-import axios from "axios";
-import React, { useContext, useState } from "react";
-import { useEffect } from "react";
+import React, { useContext } from "react";
+//import { useEffect } from "react";
 //import AuthContext from "../../store/auth-context";
 import CartContext from "../../store/cart-context";
 import Modal from "../UI/Modal";
@@ -11,26 +10,18 @@ import CartItem from "./CartItem";
 const Cart = (props) => {
     const crtCtx = useContext(CartContext);
     //const authCtx = useContext(AuthContext);
-    const [list, setList] = useState([]);
     let totalAmount = 0;
 
     const removeCartHandler = (item) => {
         crtCtx.removeItem(item);
     }
-    const userEmailId = localStorage.getItem('email');
-    useEffect(() => {
-        const fetchCartItems = async() => {
-           const res = await axios.get(`https://crudcrud.com/api/b50b346cd1564eb6a27a6af6f789fda1/cart${userEmailId}`)
-                crtCtx.items = res.data;
-                setList(res.data);
-        };
-        fetchCartItems();
-    },[userEmailId, crtCtx]);
+    //const userEmailId = localStorage.getItem('email');
+    
 
 
     const cartItem = (
         <ul>
-            {list.map(item => (
+            {crtCtx.items.map(item => (
                 <CartItem 
                     key={item.id}
                     id = {item.id}
