@@ -16,7 +16,7 @@ const Contact = (props) => {
             phoneNo: phoneNoRef.current.value,
         };
 
-        const response = await fetch('https://contacts-d0b5e-default-rtdb.firebaseio.com/contacts.json',{
+        const response = await fetch('https://contacts-d45ec-default-rtdb.firebaseio.com//contacts.json',{
             method: 'POST',
             body: JSON.stringify(userDetails),
             headers: {

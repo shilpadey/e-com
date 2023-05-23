@@ -16,7 +16,7 @@ const ProductsItem = (props) => {
             title: props.title,
             imageUrl: props.imageUrl,
             price: props.price,
-            quantity: props.quantity,
+            quantity: 1,
         };
         itemCtx.addItem(arr);
     };
@@ -28,7 +28,7 @@ const ProductsItem = (props) => {
                 <header className={classes.title}>
                     <h3>{props.title}</h3>
                 </header>
-                <Link to={`/store/${props.id}`}>    
+               <Link to={`/store/${props.id}`}>
                     <div className={classes.picture}>
                         <img src={props.imageUrl} alt=""/>
                     </div>

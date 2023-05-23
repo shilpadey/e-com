@@ -12,8 +12,8 @@ const Cart = (props) => {
     //const authCtx = useContext(AuthContext);
     let totalAmount = 0;
 
-    const removeCartHandler = (item) => {
-        crtCtx.removeItem(item);
+    const removeCartHandler = (id) => {
+        crtCtx.removeItem(id);
     }
     //const userEmailId = localStorage.getItem('email');
     
@@ -29,7 +29,7 @@ const Cart = (props) => {
                     imageUrl={item.imageUrl}
                     price={item.price}
                     quantity={item.quantity}
-                    onRemove = {removeCartHandler.bind(null,item)}
+                    onRemove ={removeCartHandler.bind(null,item.id)}
                 />
             ))}
         </ul>

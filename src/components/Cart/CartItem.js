@@ -2,7 +2,10 @@ import React from "react";
 import  './CartItem.css';
 
 const CartItem = (props) => {
-    const price = props.price === null ? 0 : `$${props.price}`;
+    console.log(props.price);
+    const price =`$${props.price.toFixed(2)}`;
+    console.log(price);
+
     return (
         <div className="cart-row">
             <span className="cart-item cart-column">  
